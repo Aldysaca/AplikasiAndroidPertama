@@ -1,5 +1,6 @@
 package com.example.aplikasiandroidpertamastar
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -8,6 +9,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+
+private val MainActivity.buttonDaftar: Int
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,6 +38,15 @@ class MainActivity : AppCompatActivity() {
                     .show()
             }
         }
+
+        val buttonDaftar = findViewById<Button>(buttonDaftar)
+
+        buttonDaftar.setOnClickListener {
+          val intentPindah = Intent(this, PendaftaranActivity::class.java)
+            startActivity(intentPindah)
+            finish()
+        }
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
